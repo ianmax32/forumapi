@@ -27,6 +27,7 @@ router.post("/", async (req, res) => {
     username: req.body.username,
     answers: req.body.answers,
     likes: req.body.likes,
+    date:new Date().toLocaleDateString()
   });
 
   await question

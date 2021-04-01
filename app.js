@@ -5,16 +5,14 @@ const bodyParser = require('body-parser');
 const QuestionsRouter = require('./Routes/QuestionsRoute');
 const AnswersRoute = require('./Routes/AnswersRoute');
 const app = express();
-
+var cors = require('cors');
 
 //middlewares
+app.use(cors());
 app.use(bodyParser.json());
 app.use('/',QuestionsRouter);
 app.use('/answers',AnswersRoute);
 
-/*app.get('/',(req,res) =>{
-    res.send("Hello welcome home");
-});*/
 
 mongoose.connect(process.env.database_connection,{useNewUrlParser:true}, () =>{
     console.log('database connected')
